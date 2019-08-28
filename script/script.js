@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "initialize" }]*/
+
 // Configuration
 const config = {
 	cardCount: 16, // HTML currently limits game to 16 cards
@@ -25,7 +27,7 @@ function initialize() {
 	}
 
 	// Save element handles to array:
-	for (card of cards) {
+	for (let card of cards) {
 		card.element = document.querySelector(`#${card.id}`);
 	}
 
@@ -51,7 +53,7 @@ function restart(cards) {
 	}
 
 	// Reset cards:
-	for (card of cards) {
+	for (let card of cards) {
 		card.turned = false;
 		card.solved = false;
 		card.icon = false;
@@ -66,7 +68,7 @@ function restart(cards) {
 
 
 	// Distribute icons in random order:
-	cardsToPaint = cards;
+	let cardsToPaint = cards;
 	for (let i = 0; i < config.cardCount / 2; i++) {
 		let currentIcon = "";
 		do {
@@ -79,21 +81,20 @@ function restart(cards) {
 	}
 
 	// Paint cards:
-	for (card of cards) {
+	for (let card of cards) {
 		card.element.querySelector("div.front i").setAttribute("class", `fas fa-${card.icon}`);
 	}
 
 	writeCardStates(cards);
 	writeStats(moves);
-	shuffleCards(cards);
 
 }
 
 // Click-handler: react to user click on card:
 function clicked(cards) {
 
-	 // Check, whether event is coming from a card:
-	 if (event.target.parentNode.classList.contains("card")) {
+	// Check, whether event is coming from a card:
+	if (event.target.parentNode.classList.contains("card")) {
 		
 		// Stats:
 		moves++;
@@ -120,7 +121,7 @@ function clicked(cards) {
 				}
 				else if (intCardsTurned < 2) {
 					// There might be a solve:
-					for (card of cards) {
+					for (let card of cards) {
 						if (card.turned && (card.icon === cardClicked.icon)) {
 							card.solved = true;
 							cardClicked.solved = true;
@@ -139,7 +140,7 @@ function clicked(cards) {
 					}
 				}
 				else {
-					for (card of cards) {
+					for (let card of cards) {
 						if (!card.solved) {
 							card.turned = false;
 						}
@@ -153,12 +154,12 @@ function clicked(cards) {
 		if (stars > 5) stars = 5;
 		writeCardStates(cards);
 		writeStats(moves, stars);
-	 }
+	}
 }
 
 // Helper: Write state array to UI (only write changes to avoid performance impediments):
 function writeCardStates(cards) {
-	for (card of cards) {
+	for (let card of cards) {
 		if (card.element.classList.contains("turned") !== card.turned) {
 			card.element.classList.toggle("turned");
 		}
@@ -191,39 +192,16 @@ function colorIcons (querySelector, intColor) {
 // Helper: start timer:
 function startTimer() {
 	startTime = Date.now();
-	elementTime = document.querySelector("nav .time");
+	const elementTime = document.querySelector("nav .time");
 	elementTime.innerText = 0;
 	myTimer = setInterval(function() {
 		elementTime.innerText = parseInt((Date.now() - startTime) / 1000)		;
 	}, 1000);
 }
 
-// Decorative: Take cards from table one by one:
-function shuffleCards(cards) {
-	// For some reason this doesn't work. TODO
-	return; 
-	let i = 0;
-	// Hide all cards one by one (take them from the table):
-	for (card of cards) {
-		card.element.style.opacity = 1;
-		card.element.style.transitionDelay = `${i / cards.length * 1}s`;
-		card.element.style.opacity = 0.1;
-		console.log(card.element.style.transitionDelay)
-		i++;
-	}
-	// Let the cards reappear shuffled:
-	setTimeout(function() {
-		for (card of cards) {
-			card.element.style.transitionDelay = `${Math.random() * 0.75}s`;
-			card.element.style.opacity = 1;
-			i++;
-		}
-	}, 2000)
-}
-
 // Decorative: Winning function with modal:
 function youWon(cards) {
-	for (card of cards) {
+	for (let card of cards) {
 		card.element.classList.add("winner");
 	}
 	clearInterval(myTimer);

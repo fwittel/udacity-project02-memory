@@ -1,0 +1,23 @@
+{
+  "name": "udacity-project02-memory",
+  "version": "1.0.0",
+  "description": "Memory game in front-end dev training.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fwittel/udacity-project02-memory.git"
+  },
+  "author": "FW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fwittel/udacity-project02-memory/issues"
+  },
+  "homepage": "https://github.com/fwittel/udacity-project02-memory#readme",
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "gulp": "^4.0.2"
+  }
+}
