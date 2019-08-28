@@ -1,0 +1,208 @@
+/*General styling*/
+body {
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	padding: 0;
+	object-fit: contain;
+}
+
+h1 {
+	/*font-family: 'Comfortaa', cursive;*/
+	margin: 10px;
+	padding: 0 0 0 0;
+}
+
+a {
+	color: #000;
+}
+
+header {
+	text-align: center;
+}
+
+i.restart {
+	cursor: pointer;
+}
+
+nav {
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+	font-size: 0.5em;
+	padding: 0 0 10px 0;
+}
+
+/*Grid styling*/
+.game.grid-container {
+	display: grid;
+	height: 100vh;
+	grid-gap: 20px 20px;
+	padding: 0 20px 0 20px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto auto repeat(4, 1fr);
+	background-image: linear-gradient( 111.5deg,  rgba(228,247,255,1) 21.9%, rgba(255,216,194,1) 92.2% );
+}
+
+header {
+	grid-area: 1 / 1/ 1/ -1;
+}
+
+nav {
+	grid-area: 2 / 1 / 2 / -1;
+}
+
+footer {
+	grid-area: -1 / 1 / -1 / -1;
+}
+
+/*Responsiveness*/
+
+@media (min-width: 1280px) {
+	body {
+		padding: 0 calc((100vw - 1280px) * 0.5);
+	}
+}
+
+/*Cards styling*/
+
+.card {
+	border: solid 1px #666;
+	border-radius: 5px;
+	perspective: 1000px;
+	transition: transform .5s;
+	transform-style: preserve-3d;
+	cursor: pointer;
+	background-color: #f0f; 
+}
+
+.card i {
+	font-size: 3em;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.card .front {
+	height: 100%;
+	display: none;
+	background-color: #2E4053;
+	color: #fff;
+}
+
+.card .back {
+	height: 100%;
+	display: block;
+	background: 
+	color: white;
+	background: repeating-linear-gradient(
+		-45deg,
+		#53667a,
+		#53667a 5px,
+		#2E4053 5px,
+		#2E4053 6px
+	);
+}
+
+.card .back i {
+	color: #777;
+}
+
+.card.turned {
+	transform: rotateY(180deg);
+}
+
+.card.turned .front {
+	display: block;
+}
+
+
+.card.turned .back {
+	display: none;
+}
+
+.winner {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/*Modal styling*/
+
+container.modal {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+container.modal .overlay {
+	position: absolute;
+	width: 40vmin;
+	height: 40vmin;
+	left: calc(50vw - 30vmin);
+	top: 15vmin;
+	background-color: #fff;
+	border-radius: 30vmin;
+	text-align: center;
+	padding: 10vmin;
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-delay: 0.8s;
+}
+
+.pulse {
+	position: absolute;
+	border-radius: 1px;
+	width: 2px;
+	height: 2px;
+	transition-duration: 0.3s;
+	transition-property: transform;
+	transform-style: ease-out;
+	opacity: 0.2;
+}
+
+#circle1 {
+	background-color: #f00;
+	left: 80vw;
+	top: 60vh;
+	transition-delay: 0s;
+}
+
+#circle2 {
+	background-color: #0f0;
+	left: 40vw;
+	top: 70vh;
+	transition-delay: 0.3s;
+}
+
+#circle3 {
+	background-color: #ff0;
+	left: 60vw;
+	top: 30vh;
+	transition-delay: 0.5s;
+}
+
+#circle4 {
+	background-color: #00f;
+	left: 60vw;
+	top: 50vh;
+	transition-delay: 0.6s;
+}
+
+#circle5 {
+	background-color: #f0f;
+	left: 30vw;
+	top: 40vh;
+	transition-delay: 0.9s;
+}

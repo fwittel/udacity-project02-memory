@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<title>Memory Game</title>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:600|Raleway&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style/style.css">
+	<script src="https://kit.fontawesome.com/4438645995.js"></script>
+	<script src="script/script.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			initialize();
+		});
+	</script>
+</head>
+<body>
+	<!-- Game itself (behind modal container) -->
+	<container class="game grid-container">
+		<header class="grid-item">
+			<h1>
+				Memory Game
+			</h1>
+		</header>
+		<nav class="grid-item">
+			<p>
+				Moves: <span class="moves">0</span> | Time: <span class="time">0</span> sec
+			</p>
+			<p class="stars">
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</p>
+			<p>
+				<i class="restart fas fa-redo-alt"></i>
+			</p>
+		</nav>
+		<!-- For changing layout: (div.card#card$>(div.front>i.fas.fa-anchor)+(div.back>i.fas.fa-brain))*16 -->	
+		<div class="card" id="card1">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card2">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card3">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card4">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card5">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card6">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card7">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card8">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card9">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card10">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card11">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card12">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card13">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card14">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card15">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<div class="card" id="card16">
+			<div class="front"><i class="fas fa-anchor"></i></div>
+			<div class="back"><i class="fas fa-brain"></i></div>
+		</div>
+		<footer class="grid-item">
+			Icons from <a href="https://fontawesome.com/">fontawesome.com</a>
+		</footer>
+	</container>
+	<!-- Overlay when game was won -->
+	<container class="modal">
+		<div class="pulse" id="circle1"></div>
+		<div class="pulse" id="circle2"></div>
+		<div class="pulse" id="circle3"></div>
+		<div class="pulse" id="circle4"></div>
+		<div class="pulse" id="circle5"></div>
+		<div class="overlay">
+			<h1 class="congratulation">You're a Winner!</h1>
+			<p class="stars">
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</p>
+				<p>The game took you <span class="moves">0</span> moves in <span class="time">0</span> seconds to finish.</p>
+				<p class="restart">Want to go again?</p>
+				<p><i class="restart fas fa-redo-alt"></i></p>
+			</p>
+		</div>
+	</container>
+</body>
+</html>
